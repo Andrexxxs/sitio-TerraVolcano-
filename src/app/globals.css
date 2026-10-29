@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-basalt: #14100e;
+  --color-ash: #241e1a;
+  --color-ash-line: #3a312b;
+  --color-snow: #f3efe8;
+  --color-mist: #b9b0a6;
+  --color-lava: #ff5b1a;
+  --color-ember: #ffb547;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-archivo);
+}
+
+html {
+  background: var(--color-basalt);
+  color: var(--color-snow);
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.display {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  /* Condensed on phones so long Spanish words fit; expanded from 40rem up. */
+  font-variation-settings: "wdth" 100;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+@media (min-width: 40rem) {
+  .display {
+    font-variation-settings: "wdth" 125;
+  }
+}
+
+/* Hollow letters drawn with the current text colour. */
+.outline-text {
+  -webkit-text-stroke: 1.5px currentColor;
+  color: transparent;
+}
+
+/* FAQ answers slide open instead of popping. */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      content-visibility 0.45s allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
+}
