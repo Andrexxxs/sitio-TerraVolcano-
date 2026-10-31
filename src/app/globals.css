@@ -43,6 +43,79 @@ body {
   color: transparent;
 }
 
+/* A cloud passage after the hero. With reduced motion it is a normal photo section. */
+.cloud-passage {
+  position: relative;
+  isolation: isolate;
+  min-height: 760px;
+  min-height: max(680px, 100svh);
+  overflow: clip;
+  background: var(--color-basalt);
+}
+
+.cloud-photo, .cloud-shade, .cloud-night { position: absolute; inset: 0; pointer-events: none; }
+.cloud-photo { inset: -6% 0; }
+.cloud-photo img { object-position: 55% center; }
+.cloud-shade {
+  background: linear-gradient(90deg, #14100ed9 0%, #14100e80 48%, #14100e26 100%),
+    linear-gradient(0deg, #14100e 0%, transparent 30%, #14100e4d 100%);
+}
+.cloud-night { background: #14100e; opacity: 0; }
+.cloud-content { position: relative; z-index: 3; max-width: 1280px; margin: auto; padding: clamp(9rem, 24svh, 18rem) 2rem 10rem; }
+.cloud-kicker { display: flex; align-items: center; gap: .75rem; font: .65rem/1.6 ui-monospace, monospace; letter-spacing: .22em; text-transform: uppercase; }
+.cloud-kicker > span { width: 6px; height: 6px; background: #ffb547; border-radius: 50%; }
+.cloud-content h2 { margin: 1.8rem 0; max-width: 900px; font-size: clamp(2.5rem, 6.8vw, 6rem); }
+.cloud-content h2 span { color: var(--color-ember); }
+.cloud-body { max-width: 390px; color: #f3efe8cc; line-height: 1.8; font-size: 1rem; }
+.cloud-cta { display: inline-flex; align-items: center; gap: 2rem; margin-top: 2rem; padding: .8rem 0; border-bottom: 1px solid #f3efe880; font-size: .875rem; font-weight: 600; transition: color .2s, border-color .2s; }
+.cloud-cta:hover { color: #ffb547; border-color: #ffb547; }
+.cloud-cta span { font-size: 1.5rem; }
+.cloud-passage a:focus-visible { outline: 2px solid #ffb547; outline-offset: 8px; }
+.cloud-invitation { display: none; position: absolute; inset: 0; z-index: 1; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; padding: 2rem; text-align: center; }
+.cloud-invitation p { max-width: 900px; font-size: clamp(2.5rem, 6vw, 5.7rem); }
+.cloud-invitation > span:not(.cloud-kicker) { max-width: 310px; font-size: .85rem; line-height: 1.6; color: var(--color-mist); }
+.cloud-invitation svg { margin-top: 1rem; color: var(--color-ember); }
+.cloud-veil {
+  visibility: hidden; position: absolute; z-index: 2; pointer-events: none;
+  left: -25%; top: -75%; width: 150%; height: 250%;
+  background: #e5e4df;
+  mask: url('/images/cloud-bank.svg') center / 100% 100% no-repeat;
+  will-change: transform;
+}
+.cloud-veil--back { background: #bfc7c7; opacity: .86; }
+.cloud-veil--front { background: linear-gradient(110deg, #d7dcdb, #f3efe8 48%, #d4d7d4); }
+.cloud-route { position: absolute; right: max(3rem, calc((100vw - 1200px)/2)); bottom: 24%; z-index: 3; width: 190px; display: flex; flex-direction: column; }
+.cloud-route svg { width: 100%; }
+.cloud-route-altitude { font: 500 2rem/1.3 ui-monospace, monospace; letter-spacing: -.06em; }
+.cloud-route .cloud-kicker { margin-top: .5rem; font-size: .55rem; letter-spacing: .12em; }
+.cloud-footer { position: absolute; z-index: 3; bottom: 2.5rem; left: 2rem; right: 2rem; display: flex; justify-content: space-between; border-top: 1px solid #f3efe826; padding-top: 1rem; color: #f3efe899; font: .6rem/1.5 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
+.cloud-footer a { display: flex; gap: 1.5rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cloud-passage { height: 100svh; min-height: 600px; }
+}
+
+@media (max-width: 767px) {
+  .cloud-content { padding: max(7rem, 22svh) 1.25rem 12rem; }
+  .cloud-content h2 { font-size: clamp(2.5rem, 10vw, 4.25rem); }
+  .cloud-body { max-width: 290px; font-size: .875rem; }
+  .cloud-route { right: 1.25rem; bottom: 6.5rem; width: auto; }
+  .cloud-route svg { display: none; }
+  .cloud-route-altitude { font-size: 1.4rem; }
+  .cloud-footer { left: 1.25rem; right: 1.25rem; bottom: 1.75rem; letter-spacing: .06em; }
+  .cloud-footer a { gap: .5rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cloud-route { right: 2rem; bottom: 7rem; width: 130px; }
+  .cloud-route svg { display: none; }
+}
+
+@media (max-width: 767px) and (max-height: 700px) {
+  .cloud-content { padding-top: 6rem; }
+  .cloud-route { display: none; }
+}
+
 /* FAQ answers slide open instead of popping. */
 @media (prefers-reduced-motion: no-preference) {
   :root {

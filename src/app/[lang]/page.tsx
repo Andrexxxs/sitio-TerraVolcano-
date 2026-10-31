@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { About } from "@/components/About";
 import { Awards } from "@/components/Awards";
 import { Ascent } from "@/components/Ascent";
+import { CloudPassage } from "@/components/CloudPassage";
 import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
 import { LavaBands } from "@/components/LavaBands";
@@ -39,6 +40,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Nav lang={lang} t={t.nav} />
       <main>
         <Ascent t={t.hero} steps={steps} />
+        <CloudPassage t={t.clouds} />
         <Tours t={t.tours} tours={tours} />
         <LavaBands words={t.bands} />
         <About t={t.about} />
