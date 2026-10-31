@@ -20,7 +20,23 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Cloud passage
+
+`CloudPassage` sits directly between `Ascent` and `Tours` in both languages.
+The existing GSAP setup drives two independently moving cloud masks, a subtle
+photo zoom, and a summit route illustration. Scroll backwards to reverse the
+transition. Small screens use a shorter scroll distance. Reduced-motion users
+and visitors without JavaScript get the photo and content without pinning.
+
+The cloud silhouette in `public/images/cloud-bank.svg` is original, generated
+with SVG turbulence and feathered edges. The local summit photo is the existing
+Terra Volcano image from `src/lib/content.ts`; no iCapital assets are required.
+Translations live under `clouds` in `src/lib/i18n.ts`, and the section's styles
+are in `src/app/globals.css`. No new dependencies are needed.
+
+Validation: `npm run build` (includes TypeScript and both `/es` and `/en`).
+
+## Learn more about Next.js
 
 To learn more about Next.js, take a look at the following resources:
 
